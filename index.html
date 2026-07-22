@@ -61,7 +61,7 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .glow-follow{
-    position:fixed;top:0;left:0;width:500px;height:500px;z-index:1;pointer-events:none;
+    position:fixed;top:0;left:0;width:500px;height:500px;z-index:1;pointer-events:none !important;
     background:radial-gradient(circle, rgba(94,203,232,0.06), transparent 70%);
     transform:translate(-50%,-50%);
     will-change:transform;
@@ -142,8 +142,8 @@
   @keyframes travel{to{left:100%;}}
 
   /* ---------- Section shell ---------- */
-  .section{padding:150px 6vw 40px;max-width:1180px;margin:0 auto;}
-  .section-head{margin-bottom:64px;}
+  .section{padding:110px 6vw 30px;max-width:1180px;margin:0 auto;}
+  .section-head{margin-bottom:48px;}
   .section-eyebrow{
     font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-cyan);
     letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;
@@ -259,7 +259,6 @@
   <div class="nav-mark">YASHVI RAVAL</div>
   <ul class="nav-links">
     <li><a href="#about">Who I Am</a></li>
-    <li><a href="#work">Featured Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#interests">Interests</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -271,7 +270,7 @@
   <h1 class="name">Yashvi Raval</h1>
   <p class="role-line">I build at the intersection of <b>artificial intelligence</b>, <b>product design</b>, and <b>entrepreneurship</b> — turning early ideas into concepts people could actually use.</p>
   <div class="hero-cta">
-    <a href="#work" class="btn btn-primary">See what I'm building →</a>
+    <a href="#about" class="btn btn-primary">More about me →</a>
     <a href="#contact" class="btn btn-ghost">Get in touch</a>
   </div>
   <div class="scroll-cue"><span class="line"></span>SCROLL</div>
@@ -284,8 +283,7 @@
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a student who gets restless with ideas that stay theoretical. From experimenting with <b>AI concepts</b> to shaping product ideas end-to-end, I'm drawn to the full arc of building — spotting a real problem, designing a solution, and giving it a shape someone could hold.</p>
-      <p>My work sits at the overlap of <b>technology, business strategy, and design</b> — whether that's a product concept, a piece of software, or a leadership initiative at school. Outside of that, I write, paint, sing, and read — habits that feed the same curiosity in a different key.</p>
+      <p>I'm a student who gets restless with ideas that stay theoretical. My work sits at the overlap of <b>AI, product design, and entrepreneurship</b> — spotting a real problem, designing a solution, and giving it a shape someone could actually use. Outside of that, I write, paint, sing, and read.</p>
     </div>
     <div class="about-stack">
       <div class="stat-card reveal">
@@ -304,43 +302,6 @@
   </div>
 </section>
 
-<section class="section" id="work">
-  <div class="section-head reveal">
-    <div class="section-eyebrow">What I'm Building</div>
-    <div class="section-title">Featured work</div>
-  </div>
-  <div class="work-list">
-    <div class="work-card reveal">
-      <div class="work-tag">Concept 01</div>
-      <div class="work-body">
-        <h3>ModaMirror</h3>
-        <div class="work-kicker">AI-powered smart fashion mirror · Product innovation</div>
-        <p>A concept for a virtual fashion assistant that lets users visualize outfits through augmented reality — combining AI-based outfit visualization, a virtual try-on experience, and personalized recommendations into one retail-ready idea, with a subscription model behind it.</p>
-        <div class="chip-row">
-          <span class="chip">AI Visualization</span>
-          <span class="chip">AR Try-On</span>
-          <span class="chip">Retail Strategy</span>
-          <span class="chip">Subscription Model</span>
-        </div>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="work-tag">Concept 02</div>
-      <div class="work-body">
-        <h3>Credify</h3>
-        <div class="work-kicker">AI financial literacy platform · Entrepreneurship</div>
-        <p>An AI-powered financial education and budgeting platform built for teenagers — pairing an AI financial assistant and expense tracking with a saving-plan generator and gamified lessons, aimed at making money management genuinely click for young users.</p>
-        <div class="chip-row">
-          <span class="chip">AI Assistant</span>
-          <span class="chip">Expense Tracking</span>
-          <span class="chip">Gamified Learning</span>
-          <span class="chip">Business Modelling</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section" id="experience">
   <div class="section-head reveal">
     <div class="section-eyebrow">Experience</div>
@@ -351,19 +312,19 @@
       <div class="t-period">2026</div>
       <div class="t-role">AI &amp; Product Innovation Intern</div>
       <div class="t-org">Trusity Technologies</div>
-      <div class="t-desc">Worked on AI and product innovation initiatives aimed at improving technology-driven educational experiences — from product development to user experience improvements.</div>
+      <div class="t-desc">AI and product innovation work aimed at improving technology-driven educational experiences.</div>
     </div>
     <div class="t-item reveal">
       <div class="t-period">Ongoing</div>
       <div class="t-role">Associate &amp; Coordinator</div>
       <div class="t-org">AI and Computer Science Club, GEMS Modern Academy</div>
-      <div class="t-desc">Supporting initiatives that build technology awareness among students — encouraging engagement with emerging tech and promoting collaboration across the club.</div>
+      <div class="t-desc">Building technology awareness among students and promoting collaboration across the club.</div>
     </div>
     <div class="t-item reveal">
       <div class="t-period">Summer</div>
       <div class="t-role">Event Manager</div>
       <div class="t-org">School Summer Camp</div>
-      <div class="t-desc">Organized student activities and coordinated team-based sessions end-to-end, building leadership and team management skills along the way.</div>
+      <div class="t-desc">Organized and coordinated student activities end-to-end, building leadership and team management skills.</div>
     </div>
   </div>
 </section>
@@ -401,9 +362,9 @@
   <h2>Let's build something.</h2>
   <p>Open to conversations about AI, product, and early-stage ideas — reach out through any of these.</p>
   <div class="contact-btns">
-    <a href="#" class="btn btn-primary">Email me</a>
-    <a href="#" class="btn btn-ghost">LinkedIn</a>
-    <a href="#" class="btn btn-ghost">GitHub</a>
+    <a href="mailto:yravaldxb@gmail.com" class="btn btn-primary">Email me</a>
+    <a href="https://www.linkedin.com/in/yashvi-raval-897105423" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/yashviraval07" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
 

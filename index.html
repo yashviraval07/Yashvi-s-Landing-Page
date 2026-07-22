@@ -1,1299 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Yashvi Raval | Portfolio</title>
-
+<title>Yashvi Raval — Building at the intersection of AI &amp; product</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
-
-:root{
-
-    --background:#0D080B;      /* almost black wine */
-    --surface:#181014;         /* dark burgundy card */
-    --surface-light:#24151C;   /* elevated card */
-
-    --wine:#7B1E3A;            /* royal burgundy */
-    --wine-light:#B85C78;      /* muted rose highlight */
-
-    --champagne:#D8C3A5;       /* luxury gold-beige */
-    --gold:#B08D57;            /* antique gold accent */
-
-    --white:#F7F1EC;            /* warm white */
-    --muted:#B9AEB0;            /* soft grey-pink */
-
-}
-
-*{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-
-}
-
-
-body{
-
-    background:var(--background);
-
-    color:var(--white);
-
-    font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-    line-height:1.6;
-
-}
-
-
-
-/* NAVIGATION */
-
-
-nav{
-
-    position:fixed;
-
-    top:0;
-
-    width:100%;
-
-    padding:25px 8%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    background:rgba(16,12,18,.75);
-
-    backdrop-filter:blur(20px);
-
-    z-index:100;
-
-}
-
-
-.logo{
-
-    font-size:1.8rem;
-
-    font-weight:800;
-
-    letter-spacing:-1px;
-
-    color:var(--plum-light);
-
-}
-
-
-
-nav ul{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:35px;
-
-}
-
-
-
-nav a{
-
-    text-decoration:none;
-
-    color:var(--white);
-
-    font-size:.95rem;
-
-    font-weight:500;
-
-    transition:.3s;
-
-}
-
-
-nav a:hover{
-
-    color:var(--rust);
-
-}
-
-
-
-
-/* GENERAL */
-
-
-section{
-
-    padding:120px 10%;
-
-}
-
-
-
-.heading{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-
-
-.heading h2{
-
-    font-size:3.2rem;
-
-    font-weight:750;
-
-    letter-spacing:-1.5px;
-
-    color:var(--plum-light);
-
-}
-
-
-
-/* HERO */
-
-
-.hero{
-
+  :root{
+    --bg-0:#070a12;
+    --bg-1:#0c1120;
+    --bg-2:#111830;
+    --ink-0:#eef1f8;
+    --ink-1:#aab2c8;
+    --ink-2:#6b7390;
+    --accent-cyan:#5ecbe8;
+    --accent-violet:#8b7bf0;
+    --glass:rgba(255,255,255,0.035);
+    --glass-border:rgba(255,255,255,0.09);
+    --glass-hi:rgba(255,255,255,0.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-0);
+    color:var(--ink-0);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    cursor:none;
+  }
+  ::selection{background:var(--accent-violet);color:#fff;}
+
+  /* ---------- Custom cursor ---------- */
+  .cursor-dot,.cursor-ring{
+    position:fixed;top:0;left:0;pointer-events:none;z-index:9999;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    will-change:transform;
+  }
+  .cursor-dot{width:6px;height:6px;background:var(--accent-cyan);}
+  .cursor-ring{width:34px;height:34px;border:1px solid rgba(94,203,232,0.4);transition:width .2s,height .2s,border-color .2s,background .2s;}
+  .cursor-ring.hover{width:56px;height:56px;background:rgba(94,203,232,0.08);border-color:rgba(94,203,232,0.7);}
+  @media (hover:none){.cursor-dot,.cursor-ring{display:none;} body{cursor:auto;}}
+
+  /* ---------- Ambient gradient background ---------- */
+  .mesh{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(139,123,240,0.20), transparent 40%),
+      radial-gradient(circle at 82% 15%, rgba(94,203,232,0.16), transparent 45%),
+      radial-gradient(circle at 50% 85%, rgba(94,203,232,0.10), transparent 50%);
+    animation:drift 22s ease-in-out infinite alternate;
+  }
+  @keyframes drift{
+    0%{transform:translate(0,0) scale(1);}
+    100%{transform:translate(-2%,3%) scale(1.06);}
+  }
+  .grain{
+    position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .glow-follow{
+    position:fixed;top:0;left:0;width:500px;height:500px;z-index:1;pointer-events:none;
+    background:radial-gradient(circle, rgba(94,203,232,0.06), transparent 70%);
+    transform:translate(-50%,-50%);
+    will-change:transform;
+  }
+
+  section, header, footer{position:relative;z-index:2;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 6vw;
+    backdrop-filter:blur(14px);
+    background:rgba(7,10,18,0.35);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .nav-mark{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:.02em;}
+  .nav-links{display:flex;gap:34px;list-style:none;}
+  .nav-links a{
+    color:var(--ink-1);text-decoration:none;font-size:13px;letter-spacing:.03em;
+    font-family:'JetBrains Mono',monospace;
+    transition:color .25s;
+  }
+  .nav-links a:hover{color:var(--accent-cyan);}
+  @media(max-width:720px){.nav-links{display:none;}}
+
+  /* ---------- Hero ---------- */
+  .hero{
     min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-}
-
-
-
-.hero-content{
-
-    max-width:900px;
-
-}
-
-
-
-.subtitle{
-
-    color:var(--rust);
-
-    font-size:.85rem;
-
-    letter-spacing:4px;
-
-    font-weight:600;
-
-    margin-bottom:30px;
-
-}
-
-
-
-.hero h1{
-
-    font-size:5.5rem;
-
-    line-height:1.05;
-
-    letter-spacing:-4px;
-
-    font-weight:800;
-
-    margin-bottom:35px;
-
-}
-
-
-
-.hero h1 span{
-
-    color:var(--plum-light);
-
-}
-
-
-
-.hero p{
-
-    max-width:760px;
-
-    margin:auto;
-
-    color:var(--muted);
-
-    font-size:1.2rem;
-
-    line-height:1.8;
-
-    font-weight:400;
-
-}
-
-
-
-
-/* BUTTONS */
-
-
-.buttons{
-
-    margin-top:45px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-
-
-.button{
-
-    padding:15px 32px;
-
-    border-radius:40px;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    transition:.35s;
-
-}
-
-
-
-.primary{
-
-    background:var(--plum);
-
-    color:white;
-
-}
-
-
-
-.secondary{
-
-    border:1px solid var(--plum-light);
-
-    color:var(--plum-light);
-
-}
-
-
-
-.button:hover{
-
-    transform:translateY(-5px);
-
-}
-
-
-
-/* ABOUT */
-
-
-.about-text{
-
-    max-width:850px;
-
-    margin:auto;
-
-    text-align:center;
-
-    color:var(--muted);
-
-    font-size:1.1rem;
-
-    line-height:2;
-
-}
-
-
-
-/* EXPERIENCE CARDS */
-
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-}
-
-
-.card{
-
-    background:var(--surface);
-
-    padding:35px;
-
-    border-radius:25px;
-
-    border:1px solid rgba(255,255,255,.06);
-
-    transition:.35s;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateY(-10px);
-
-    background:var(--surface-light);
-
-}
-
-
-
-.card h3{
-
-    font-size:1.4rem;
-
-    font-weight:700;
-
-    color:var(--plum-light);
-
-}
-
-
-
-.role{
-
-    color:var(--rust);
-
-    font-weight:600;
-
-    margin:12px 0 18px;
-
-}
-
-
-
-.card p{
-
-    color:var(--muted);
-
-}
-    /* SKILLS */
-
-
-.skills{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-}
-
-
-
-.skill{
-
-    padding:12px 25px;
-
-    border-radius:50px;
-
-    background:var(--plum);
-
-    color:white;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-
-
-.skill:nth-child(even){
-
-    background:var(--rust);
-
-}
-
-
-
-.skill:nth-child(3n){
-
-    background:var(--sage);
-
-    color:#101410;
-
-}
-
-
-
-.skill:hover{
-
-    transform:scale(1.08);
-
-}
-
-
-
-/* INTERESTS */
-
-
-.interests{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-
-    gap:20px;
-
-}
-
-
-
-.interest{
-
-    background:var(--surface);
-
-    padding:35px 20px;
-
-    border-radius:22px;
-
-    text-align:center;
-
-    border:1px solid rgba(255,255,255,.05);
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-
-
-.interest:hover{
-
-    transform:translateY(-8px);
-
-    border-color:var(--plum);
-
-}
-
-
-
-/* PROJECTS */
-
-
-.projects{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-}
-
-
-
-.project{
-
-    background:var(--surface);
-
-    padding:35px;
-
-    border-radius:25px;
-
-    border:1px solid rgba(255,255,255,.06);
-
-}
-
-
-
-.project h3{
-
-    color:var(--plum-light);
-
-    margin-bottom:15px;
-
-}
-
-
-
-.project p{
-
-    color:var(--muted);
-
-}
-
-
-
-
-/* CONTACT */
-
-
-.contact{
-
-    text-align:center;
-
-}
-
-
-
-.contact h3{
-
-    font-size:3rem;
-
-    font-weight:800;
-
-    letter-spacing:-1px;
-
-    color:var(--plum-light);
-
-    margin-bottom:20px;
-
-}
-
-
-
-.contact p{
-
-    color:var(--muted);
-
-}
-
-
-
-.email{
-
-    margin-top:25px;
-
-    font-size:1.3rem;
-
-    color:var(--rust)!important;
-
-    font-weight:600;
-
-}
-
-
-
-/* FOOTER */
-
-
-footer{
-
-    padding:40px;
-
-    text-align:center;
-
-    color:#777;
-
-    font-size:.9rem;
-
-}
-
-
-
-/* MOBILE */
-
-
-@media(max-width:900px){
-
-
-nav ul{
-
-    display:none;
-
-}
-
-
-.hero h1{
-
-    font-size:3.3rem;
-
-    letter-spacing:-2px;
-
-}
-
-
-section{
-
-    padding:100px 7%;
-
-}
-
-
-.heading h2{
-
-    font-size:2.4rem;
-
-}
-
-
-}
-
-
+    display:flex;flex-direction:column;justify-content:center;
+    padding:0 6vw;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent-cyan);
+    letter-spacing:.12em;text-transform:uppercase;margin-bottom:26px;
+    display:flex;align-items:center;gap:10px;
+    opacity:0;animation:rise .9s .1s forwards;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-cyan);box-shadow:0 0 12px var(--accent-cyan);}
+  h1.name{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(3rem,9vw,7.2rem);line-height:.98;letter-spacing:-.02em;
+    background:linear-gradient(120deg,#ffffff 30%,#c9d3ea 60%,#8b7bf0 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    opacity:0;animation:rise 1s .25s forwards;
+  }
+  .role-line{
+    margin-top:26px;max-width:640px;
+    font-size:clamp(1.05rem,2vw,1.3rem);color:var(--ink-1);font-weight:400;line-height:1.6;
+    opacity:0;animation:rise 1s .45s forwards;
+  }
+  .role-line b{color:var(--ink-0);font-weight:500;}
+  .hero-cta{
+    margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;
+    opacity:0;animation:rise 1s .6s forwards;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+  .btn{
+    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.02em;
+    padding:14px 26px;border-radius:100px;text-decoration:none;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--accent-cyan),var(--accent-violet));color:#0a0e1a;font-weight:500;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(94,203,232,0.25);}
+  .btn-ghost{border:1px solid var(--glass-border);color:var(--ink-0);background:var(--glass);}
+  .btn-ghost:hover{border-color:rgba(94,203,232,0.5);transform:translateY(-2px);}
+
+  .scroll-cue{
+    position:absolute;bottom:40px;left:6vw;
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-2);
+    display:flex;align-items:center;gap:10px;
+    opacity:0;animation:rise 1s 1s forwards;
+  }
+  .scroll-cue .line{width:28px;height:1px;background:var(--ink-2);position:relative;overflow:hidden;}
+  .scroll-cue .line::after{content:"";position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--accent-cyan);animation:travel 2.2s linear infinite;}
+  @keyframes travel{to{left:100%;}}
+
+  /* ---------- Section shell ---------- */
+  .section{padding:150px 6vw 40px;max-width:1180px;margin:0 auto;}
+  .section-head{margin-bottom:64px;}
+  .section-eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-cyan);
+    letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;
+  }
+  .section-title{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.01em;color:var(--ink-0);
+  }
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;}
+  .about-text p{color:var(--ink-1);font-size:1.05rem;line-height:1.85;margin-bottom:20px;}
+  .about-text b{color:var(--ink-0);font-weight:500;}
+  .stat-card{
+    background:var(--glass);border:1px solid var(--glass-border);border-radius:18px;
+    padding:26px 24px;backdrop-filter:blur(10px);margin-bottom:14px;
+    transition:border-color .3s, transform .3s;
+  }
+  .stat-card:hover{border-color:rgba(94,203,232,0.35);transform:translateY(-3px);}
+  .stat-card .stat-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase;}
+  .stat-card .stat-value{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;color:var(--ink-0);margin-top:8px;font-weight:600;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Featured work ---------- */
+  .work-list{display:flex;flex-direction:column;gap:22px;}
+  .work-card{
+    background:var(--glass);border:1px solid var(--glass-border);border-radius:22px;
+    padding:44px;backdrop-filter:blur(10px);
+    display:grid;grid-template-columns:auto 1fr;gap:36px;
+    position:relative;overflow:hidden;
+    transition:border-color .4s, transform .4s;
+  }
+  .work-card:hover{border-color:rgba(139,123,240,0.4);transform:translateY(-4px);}
+  .work-card::before{
+    content:"";position:absolute;top:-40%;right:-10%;width:340px;height:340px;
+    background:radial-gradient(circle,rgba(139,123,240,0.14),transparent 70%);
+    opacity:0;transition:opacity .5s;
+  }
+  .work-card:hover::before{opacity:1;}
+  .work-tag{
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-violet);
+    writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.1em;text-transform:uppercase;
+    align-self:start;
+  }
+  .work-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;margin-bottom:6px;color:var(--ink-0);}
+  .work-body .work-kicker{color:var(--ink-2);font-size:.9rem;margin-bottom:18px;font-family:'JetBrains Mono',monospace;}
+  .work-body p{color:var(--ink-1);line-height:1.75;margin-bottom:18px;max-width:620px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:9px;}
+  .chip{
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-1);
+    border:1px solid var(--glass-border);padding:6px 13px;border-radius:100px;
+  }
+  @media(max-width:640px){.work-card{grid-template-columns:1fr;padding:30px;}.work-tag{writing-mode:horizontal-tb;}}
+
+  /* ---------- Experience timeline ---------- */
+  .timeline{border-left:1px solid var(--glass-border);margin-left:8px;}
+  .t-item{position:relative;padding:0 0 52px 40px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:"";position:absolute;left:-6.5px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg-0);border:2px solid var(--accent-cyan);
+  }
+  .t-period{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-2);letter-spacing:.05em;margin-bottom:8px;}
+  .t-role{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:600;color:var(--ink-0);}
+  .t-org{color:var(--accent-cyan);font-size:.95rem;margin-bottom:10px;}
+  .t-desc{color:var(--ink-1);line-height:1.75;max-width:640px;}
+
+  /* ---------- Interests ---------- */
+  .interest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .interest-card{
+    background:var(--glass);border:1px solid var(--glass-border);border-radius:18px;
+    padding:30px 22px;text-align:left;transition:transform .35s,border-color .35s,background .35s;
+  }
+  .interest-card:hover{transform:translateY(-5px);border-color:rgba(94,203,232,0.35);background:var(--glass-hi);}
+  .interest-card .i-mark{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent-cyan);margin-bottom:14px;}
+  .interest-card h4{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:8px;color:var(--ink-0);}
+  .interest-card p{color:var(--ink-2);font-size:.9rem;line-height:1.6;}
+  @media(max-width:860px){.interest-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Contact ---------- */
+  .contact-wrap{
+    text-align:center;padding:130px 6vw 100px;
+  }
+  .contact-wrap h2{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(2.2rem,6vw,4.2rem);letter-spacing:-.02em;
+    background:linear-gradient(120deg,#fff,#8b7bf0);-webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:22px;
+  }
+  .contact-wrap p{color:var(--ink-1);max-width:520px;margin:0 auto 44px;line-height:1.7;}
+  .contact-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+  footer{text-align:center;padding:36px;color:var(--ink-2);font-family:'JetBrains Mono',monospace;font-size:12px;}
+
+  a{outline-offset:4px;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent-cyan);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
 </style>
-
 </head>
-
-
 <body>
 
-
-<!-- NAVIGATION -->
-
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<div class="mesh"></div>
+<div class="grain"></div>
+<div class="glow-follow"></div>
 
 <nav>
-
-
-<div class="logo">
-
-YR.
-
-</div>
-
-
-
-<ul>
-
-<li>
-<a href="#about">About</a>
-</li>
-
-<li>
-<a href="#experience">Experience</a>
-</li>
-
-<li>
-<a href="#projects">Projects</a>
-</li>
-
-<li>
-<a href="#skills">Skills</a>
-</li>
-
-<li>
-<a href="#contact">Contact</a>
-</li>
-
-</ul>
-
-
+  <div class="nav-mark">YASHVI RAVAL</div>
+  <ul class="nav-links">
+    <li><a href="#about">Who I Am</a></li>
+    <li><a href="#work">Featured Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
+<header class="hero">
+  <div class="eyebrow">Grade 11 · GEMS Modern Academy, Dubai</div>
+  <h1 class="name">Yashvi Raval</h1>
+  <p class="role-line">I build at the intersection of <b>artificial intelligence</b>, <b>product design</b>, and <b>entrepreneurship</b> — turning early ideas into concepts people could actually use.</p>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-primary">See what I'm building →</a>
+    <a href="#contact" class="btn btn-ghost">Get in touch</a>
+  </div>
+  <div class="scroll-cue"><span class="line"></span>SCROLL</div>
+</header>
 
-
-
-
-<!-- HERO -->
-
-
-<section class="hero">
-
-
-<div class="hero-content">
-
-
-<div class="subtitle">
-
-AI • PRODUCT • ENGINEERING
-
-</div>
-
-
-
-<h1>
-
-Building the future through
-
-<span>
-intelligent innovation.
-</span>
-
-</h1>
-
-
-
-
-<p>
-
-I'm Yashvi Raval, a student passionate about artificial intelligence,
-engineering, entrepreneurship, and product design. I build and explore
-technology that transforms ideas into useful experiences.
-
-</p>
-
-
-
-
-<div class="buttons">
-
-
-<a class="button primary"
-href="mailto:yravaldxb@gmail.com">
-
-Email Me
-
-</a>
-
-
-
-<a class="button secondary"
-href="YOUR_LINKEDIN_LINK"
-target="_blank">
-
-LinkedIn
-
-</a>
-
-
-
-<a class="button secondary"
-href="YOUR_GITHUB_LINK"
-target="_blank">
-
-GitHub
-
-</a>
-
-
-
-</div>
-
-
-</div>
-
-
+<section class="section" id="about">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">Who I Am</div>
+    <div class="section-title">Curious by default, hands-on by habit.</div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm a student who gets restless with ideas that stay theoretical. From experimenting with <b>AI concepts</b> to shaping product ideas end-to-end, I'm drawn to the full arc of building — spotting a real problem, designing a solution, and giving it a shape someone could hold.</p>
+      <p>My work sits at the overlap of <b>technology, business strategy, and design</b> — whether that's a product concept, a piece of software, or a leadership initiative at school. Outside of that, I write, paint, sing, and read — habits that feed the same curiosity in a different key.</p>
+    </div>
+    <div class="about-stack">
+      <div class="stat-card reveal">
+        <div class="stat-label">Focus areas</div>
+        <div class="stat-value">AI &amp; ML · Product · Entrepreneurship</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-label">Tools</div>
+        <div class="stat-value">Python · Blender · CAD</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-label">Recognition</div>
+        <div class="stat-value">Visionary Award, IIT Bootcamp</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-
-
-<!-- ABOUT -->
-
-
-<section id="about">
-
-
-<div class="heading">
-
-<h2>
-About Me
-</h2>
-
-</div>
-
-
-
-<div class="about-text">
-
-
-I enjoy working at the intersection of artificial intelligence,
-engineering, entrepreneurship, and design.
-
-<br><br>
-
-
-From developing AI-powered products to exploring aerospace
-technologies, I am driven by curiosity and the desire to build
-solutions that create meaningful impact.
-
-
-</div>
-
-
+<section class="section" id="work">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">What I'm Building</div>
+    <div class="section-title">Featured work</div>
+  </div>
+  <div class="work-list">
+    <div class="work-card reveal">
+      <div class="work-tag">Concept 01</div>
+      <div class="work-body">
+        <h3>ModaMirror</h3>
+        <div class="work-kicker">AI-powered smart fashion mirror · Product innovation</div>
+        <p>A concept for a virtual fashion assistant that lets users visualize outfits through augmented reality — combining AI-based outfit visualization, a virtual try-on experience, and personalized recommendations into one retail-ready idea, with a subscription model behind it.</p>
+        <div class="chip-row">
+          <span class="chip">AI Visualization</span>
+          <span class="chip">AR Try-On</span>
+          <span class="chip">Retail Strategy</span>
+          <span class="chip">Subscription Model</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-card reveal">
+      <div class="work-tag">Concept 02</div>
+      <div class="work-body">
+        <h3>Credify</h3>
+        <div class="work-kicker">AI financial literacy platform · Entrepreneurship</div>
+        <p>An AI-powered financial education and budgeting platform built for teenagers — pairing an AI financial assistant and expense tracking with a saving-plan generator and gamified lessons, aimed at making money management genuinely click for young users.</p>
+        <div class="chip-row">
+          <span class="chip">AI Assistant</span>
+          <span class="chip">Expense Tracking</span>
+          <span class="chip">Gamified Learning</span>
+          <span class="chip">Business Modelling</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-
-
-
-<!-- EXPERIENCE -->
-
-
-<section id="experience">
-
-
-<div class="heading">
-
-<h2>
-Experience
-</h2>
-
-</div>
-
-
-
-<div class="cards">
-
-
-
-<div class="card">
-
-
-<h3>
-Trusity Technologies
-</h3>
-
-
-<div class="role">
-
-AI Product Innovation Intern
-
-</div>
-
-
-<p>
-
-Worked on AI product improvements, feedback analysis,
-feature ideation, and educational technology solutions.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-
-AI & Computer Science Club
-
-</h3>
-
-
-<div class="role">
-
-Associate & Coordinator
-
-</div>
-
-
-<p>
-
-Organized initiatives, supported technology events,
-and helped grow an AI-focused student community.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-
-Summer Camp
-
-</h3>
-
-
-<div class="role">
-
-Event Manager
-
-</div>
-
-
-<p>
-
-Managed coordination, logistics, and activities
-for student experiences.
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<div class="heading">
-
-<h2>
-Projects
-</h2>
-
-</div>
-
-
-<div class="projects">
-
-
-<div class="project">
-
-<h3>
-Trupreneur.AI
-</h3>
-
-<p>
-Worked on improving an AI-powered entrepreneurship platform,
-focusing on user feedback, product ideas, and student experience.
-</p>
-
-</div>
-
-
-
-<div class="project">
-
-<h3>
-Credify
-</h3>
-
-<p>
-Designed a financial education and budgeting app concept
-focused on helping young users build better money habits.
-</p>
-
-</div>
-
-
-
-<div class="project">
-
-<h3>
-ModaMirror
-</h3>
-
-<p>
-Explored an AI and AR-powered smart mirror concept that
-helps users visualize outfits and improve shopping experiences.
-</p>
-
-</div>
-
-
-
-</div>
-
+<section class="section" id="experience">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">Experience</div>
+    <div class="section-title">Where I've put it into practice</div>
+  </div>
+  <div class="timeline">
+    <div class="t-item reveal">
+      <div class="t-period">2026</div>
+      <div class="t-role">AI &amp; Product Innovation Intern</div>
+      <div class="t-org">Trusity Technologies</div>
+      <div class="t-desc">Worked on AI and product innovation initiatives aimed at improving technology-driven educational experiences — from product development to user experience improvements.</div>
+    </div>
+    <div class="t-item reveal">
+      <div class="t-period">Ongoing</div>
+      <div class="t-role">Associate &amp; Coordinator</div>
+      <div class="t-org">AI and Computer Science Club, GEMS Modern Academy</div>
+      <div class="t-desc">Supporting initiatives that build technology awareness among students — encouraging engagement with emerging tech and promoting collaboration across the club.</div>
+    </div>
+    <div class="t-item reveal">
+      <div class="t-period">Summer</div>
+      <div class="t-role">Event Manager</div>
+      <div class="t-org">School Summer Camp</div>
+      <div class="t-desc">Organized student activities and coordinated team-based sessions end-to-end, building leadership and team management skills along the way.</div>
+    </div>
+  </div>
 </section>
 
-
-
-
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<div class="heading">
-
-<h2>
-Skills
-</h2>
-
-</div>
-
-
-
-<div class="skills">
-
-
-<div class="skill">
-Python
-</div>
-
-
-<div class="skill">
-Artificial Intelligence
-</div>
-
-
-<div class="skill">
-Blender
-</div>
-
-
-<div class="skill">
-CAD
-</div>
-
-
-<div class="skill">
-Product Design
-</div>
-
-
-<div class="skill">
-UI/UX
-</div>
-
-
-<div class="skill">
-Machine Learning
-</div>
-
-
-<div class="skill">
-Leadership
-</div>
-
-
-<div class="skill">
-Public Speaking
-</div>
-
-
-<div class="skill">
-Entrepreneurship
-</div>
-
-
-</div>
-
+<section class="section" id="interests">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">Beyond the Work</div>
+    <div class="section-title">Interests</div>
+  </div>
+  <div class="interest-grid">
+    <div class="interest-card reveal">
+      <div class="i-mark">// WRITING</div>
+      <h4>Writing</h4>
+      <p>Exploring ideas through storytelling and creative expression.</p>
+    </div>
+    <div class="interest-card reveal">
+      <div class="i-mark">// ART</div>
+      <h4>Painting</h4>
+      <p>Visual creativity as its own kind of problem-solving.</p>
+    </div>
+    <div class="interest-card reveal">
+      <div class="i-mark">// MUSIC</div>
+      <h4>Singing</h4>
+      <p>Musical expression as a counterbalance to technical work.</p>
+    </div>
+    <div class="interest-card reveal">
+      <div class="i-mark">// READING</div>
+      <h4>Reading</h4>
+      <p>Expanding perspective across fields, on and off the syllabus.</p>
+    </div>
+  </div>
 </section>
 
-
-
-
-
-
-<!-- INTERESTS -->
-
-
-<section>
-
-
-<div class="heading">
-
-<h2>
-Interests
-</h2>
-
-</div>
-
-
-
-<div class="interests">
-
-
-<div class="interest">
-
-Artificial Intelligence
-
-</div>
-
-
-
-<div class="interest">
-
-Space Technology
-
-</div>
-
-
-
-<div class="interest">
-
-Aerospace Innovation
-
-</div>
-
-
-
-<div class="interest">
-
-Future Energy Systems
-
-</div>
-
-
-
-<div class="interest">
-
-Human-Centered Design
-
-</div>
-
-
-
-<div class="interest">
-
-Technology Entrepreneurship
-
-</div>
-
-
-
-<div class="interest">
-
-Writing
-
-</div>
-
-
-
-<div class="interest">
-
-Engineering
-
-</div>
-
-
-
-</div>
-
-
+<section id="contact" class="contact-wrap reveal">
+  <h2>Let's build something.</h2>
+  <p>Open to conversations about AI, product, and early-stage ideas — reach out through any of these.</p>
+  <div class="contact-btns">
+    <a href="#" class="btn btn-primary">Email me</a>
+    <a href="#" class="btn btn-ghost">LinkedIn</a>
+    <a href="#" class="btn btn-ghost">GitHub</a>
+  </div>
 </section>
 
+<footer>Designed &amp; built by Yashvi Raval — 2026</footer>
 
+<script>
+  // Custom cursor
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  const glow = document.querySelector('.glow-follow');
+  let mx=0,my=0, rx=0, ry=0;
+  window.addEventListener('mousemove', e=>{
+    mx=e.clientX; my=e.clientY;
+    dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+    glow.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+  });
+  function loop(){
+    rx += (mx-rx)*0.15; ry += (my-ry)*0.15;
+    ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  }
+  loop();
+  document.querySelectorAll('a,button,.work-card,.interest-card,.stat-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+  });
 
-
-
-
-
-<!-- CONTACT -->
-
-
-<section id="contact">
-
-
-<div class="contact">
-
-
-<h3>
-
-Let's Build Something
-
-</h3>
-
-
-
-<p>
-
-Interested in AI, engineering, product innovation,
-or future technologies?
-
-</p>
-
-
-
-<p class="email">
-
-yravaldxb@gmail.com
-
-</p>
-
-
-
-<div class="buttons">
-
-
-<a class="button primary"
-href="mailto:yravaldxb@gmail.com">
-
-Email
-
-</a>
-
-
-
-
-<a class="button secondary"
-href="https://www.linkedin.com/in/yashvi-raval-897105423?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-target="_blank">
-
-LinkedIn
-
-</a>
-
-
-
-<a class="button secondary"
-href="https://github.com/yashviraval07"
-target="_blank">
-
-GitHub
-
-</a>
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<footer>
-
-© 2026 Yashvi Raval
-
-<br>
-
-Designed with curiosity, technology, and purpose.
-
-</footer>
-
-
-
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); } });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 
 </body>
-
 </html>

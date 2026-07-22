@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,60 +8,82 @@
 
 <title>Yashvi Raval | Portfolio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
 
 :root{
-    --background:#111411;
-    --surface:#1B211C;
-    --surface-light:#232A24;
 
-    --sage:#91A892;
-    --sage-light:#B6C8B7;
+    --background:#100C12;
+    --surface:#1B151F;
+    --surface-light:#261D2B;
+
+    --plum:#806581;
+    --plum-light:#C1A9C7;
 
     --rust:#C47A50;
-    --plum:#806581;
+    --sage:#7D927E;
 
-    --white:#F4F1EB;
-    --muted:#B7B8B2;
+    --white:#F5F3F7;
+    --muted:#B9B2BC;
+
 }
 
 
+/* RESET */
+
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
     scroll-behavior:smooth;
+
 }
 
 
 body{
 
     background:var(--background);
+
     color:var(--white);
-    font-family:"Inter",sans-serif;
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
     line-height:1.6;
 
 }
 
 
+
 /* NAVIGATION */
+
 
 nav{
 
     position:fixed;
+
     top:0;
+
     width:100%;
+
     padding:25px 8%;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    background:rgba(17,20,17,0.85);
-    backdrop-filter:blur(15px);
+    background:rgba(16,12,18,.75);
+
+    backdrop-filter:blur(20px);
 
     z-index:100;
 
@@ -69,27 +92,39 @@ nav{
 
 .logo{
 
-    font-family:"Playfair Display",serif;
     font-size:1.8rem;
-    color:var(--sage-light);
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    color:var(--plum-light);
 
 }
+
 
 
 nav ul{
 
     display:flex;
+
     list-style:none;
+
     gap:35px;
 
 }
 
 
+
 nav a{
 
     text-decoration:none;
+
     color:var(--white);
+
     font-size:.95rem;
+
+    font-weight:500;
 
     transition:.3s;
 
@@ -104,7 +139,9 @@ nav a:hover{
 
 
 
+
 /* GENERAL */
+
 
 section{
 
@@ -113,19 +150,26 @@ section{
 }
 
 
+
 .heading{
 
     text-align:center;
+
     margin-bottom:60px;
 
 }
 
 
+
 .heading h2{
 
-    font-family:"Playfair Display",serif;
-    font-size:3rem;
-    color:var(--sage-light);
+    font-size:3.2rem;
+
+    font-weight:750;
+
+    letter-spacing:-1.5px;
+
+    color:var(--plum-light);
 
 }
 
@@ -139,12 +183,15 @@ section{
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
 
 }
+
 
 
 .hero-content{
@@ -154,82 +201,124 @@ section{
 }
 
 
+
 .subtitle{
 
     color:var(--rust);
-    letter-spacing:4px;
+
     font-size:.85rem;
 
-    margin-bottom:25px;
+    letter-spacing:4px;
 
-}
-
-
-.hero h1{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:5rem;
-    line-height:1.05;
+    font-weight:600;
 
     margin-bottom:30px;
 
 }
 
 
-.hero h1 span{
 
-    color:var(--sage-light);
+.hero h1{
+
+    font-size:5.5rem;
+
+    line-height:1.05;
+
+    letter-spacing:-4px;
+
+    font-weight:800;
+
+    margin-bottom:35px;
 
 }
+
+
+
+.hero h1 span{
+
+    color:var(--plum-light);
+
+}
+
 
 
 .hero p{
 
-    color:var(--muted);
+    max-width:760px;
 
-    max-width:750px;
     margin:auto;
 
-    font-size:1.15rem;
+    color:var(--muted);
 
-    line-height:1.9;
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+    font-weight:400;
 
 }
 
 
 
-/* BUTTON */
+
+/* BUTTONS */
+
+
+.buttons{
+
+    margin-top:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
 
 
 .button{
 
-    display:inline-block;
+    padding:15px 32px;
 
-    margin-top:40px;
-
-    padding:14px 35px;
-
-    border-radius:50px;
-
-    background:var(--sage);
-
-    color:#111;
+    border-radius:40px;
 
     text-decoration:none;
 
     font-weight:600;
 
-    transition:.3s;
+    transition:.35s;
 
 }
+
+
+
+.primary{
+
+    background:var(--plum);
+
+    color:white;
+
+}
+
+
+
+.secondary{
+
+    border:1px solid var(--plum-light);
+
+    color:var(--plum-light);
+
+}
+
 
 
 .button:hover{
 
     transform:translateY(-5px);
-
-    background:var(--rust);
 
 }
 
@@ -256,7 +345,8 @@ section{
 
 
 
-/* EXPERIENCE */
+/* EXPERIENCE CARDS */
+
 
 .cards{
 
@@ -277,11 +367,12 @@ section{
 
     border-radius:25px;
 
-    border:1px solid rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.06);
 
     transition:.35s;
 
 }
+
 
 
 .card:hover{
@@ -293,13 +384,17 @@ section{
 }
 
 
+
 .card h3{
 
-    color:var(--sage-light);
+    font-size:1.4rem;
 
-    margin-bottom:10px;
+    font-weight:700;
+
+    color:var(--plum-light);
 
 }
+
 
 
 .role{
@@ -308,9 +403,10 @@ section{
 
     font-weight:600;
 
-    margin-bottom:18px;
+    margin:12px 0 18px;
 
 }
+
 
 
 .card p{
@@ -318,38 +414,39 @@ section{
     color:var(--muted);
 
 }
-
-
-
-/* SKILLS */
+    /* SKILLS */
 
 
 .skills{
 
     display:flex;
 
-    flex-wrap:wrap;
-
     justify-content:center;
+
+    flex-wrap:wrap;
 
     gap:15px;
 
 }
 
 
+
 .skill{
 
-    padding:12px 24px;
+    padding:12px 25px;
 
     border-radius:50px;
 
-    background:var(--sage);
+    background:var(--plum);
 
-    color:#121412;
+    color:white;
 
     font-weight:600;
 
+    transition:.3s;
+
 }
+
 
 
 .skill:nth-child(even){
@@ -359,14 +456,27 @@ section{
 }
 
 
+
 .skill:nth-child(3n){
 
-    background:var(--plum);
+    background:var(--sage);
 
-    color:white;
+    color:#101410;
 
 }
-    /* INTERESTS */
+
+
+
+.skill:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+
+/* INTERESTS */
+
 
 .interests{
 
@@ -377,6 +487,7 @@ section{
     gap:20px;
 
 }
+
 
 
 .interest{
@@ -391,22 +502,69 @@ section{
 
     border:1px solid rgba(255,255,255,.05);
 
-    color:var(--white);
-
-    font-weight:500;
+    font-weight:600;
 
     transition:.3s;
 
 }
 
 
+
 .interest:hover{
 
     transform:translateY(-8px);
 
-    border-color:var(--sage);
+    border-color:var(--plum);
 
 }
+
+
+
+/* PROJECTS */
+
+
+.projects{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+.project{
+
+    background:var(--surface);
+
+    padding:35px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+
+
+.project h3{
+
+    color:var(--plum-light);
+
+    margin-bottom:15px;
+
+}
+
+
+
+.project p{
+
+    color:var(--muted);
+
+}
+
 
 
 
@@ -420,17 +578,21 @@ section{
 }
 
 
-.contact h3{
 
-    font-family:"Playfair Display",serif;
+.contact h3{
 
     font-size:3rem;
 
-    color:var(--sage-light);
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    color:var(--plum-light);
 
     margin-bottom:20px;
 
 }
+
 
 
 .contact p{
@@ -440,6 +602,7 @@ section{
 }
 
 
+
 .email{
 
     margin-top:25px;
@@ -447,6 +610,8 @@ section{
     font-size:1.3rem;
 
     color:var(--rust)!important;
+
+    font-weight:600;
 
 }
 
@@ -463,45 +628,49 @@ footer{
 
     color:#777;
 
+    font-size:.9rem;
+
 }
 
 
 
-/* RESPONSIVE */
+/* MOBILE */
 
 
 @media(max-width:900px){
 
 
-    nav ul{
+nav ul{
 
-        display:none;
-
-    }
-
-
-    .hero h1{
-
-        font-size:3.2rem;
-
-    }
-
-
-    section{
-
-        padding:100px 7%;
-
-    }
-
-
-    .heading h2{
-
-        font-size:2.4rem;
-
-    }
+    display:none;
 
 }
 
+
+.hero h1{
+
+    font-size:3.3rem;
+
+    letter-spacing:-2px;
+
+}
+
+
+section{
+
+    padding:100px 7%;
+
+}
+
+
+.heading h2{
+
+    font-size:2.4rem;
+
+}
+
+
+}
 
 
 </style>
@@ -512,29 +681,44 @@ footer{
 <body>
 
 
-<!-- NAVBAR -->
+<!-- NAVIGATION -->
 
 
 <nav>
 
+
 <div class="logo">
+
 YR.
+
 </div>
+
 
 
 <ul>
 
-<li><a href="#about">About</a></li>
+<li>
+<a href="#about">About</a>
+</li>
 
-<li><a href="#experience">Experience</a></li>
+<li>
+<a href="#experience">Experience</a>
+</li>
 
-<li><a href="#skills">Skills</a></li>
+<li>
+<a href="#projects">Projects</a>
+</li>
 
-<li><a href="#interests">Interests</a></li>
+<li>
+<a href="#skills">Skills</a>
+</li>
 
-<li><a href="#contact">Contact</a></li>
+<li>
+<a href="#contact">Contact</a>
+</li>
 
 </ul>
+
 
 </nav>
 
@@ -561,46 +745,59 @@ AI • PRODUCT • ENGINEERING
 
 <h1>
 
-Building intelligent products with
+Building the future through
 
 <span>
-
-curiosity and purpose.
-
+intelligent innovation.
 </span>
 
 </h1>
 
 
 
+
 <p>
 
-I'm Yashvi Raval, a Grade 11 student passionate about artificial intelligence,
-engineering, entrepreneurship, and product design. I enjoy transforming ideas
-into practical technology and exploring how emerging innovations can shape
-the future.
+I'm Yashvi Raval, a student passionate about artificial intelligence,
+engineering, entrepreneurship, and product design. I build and explore
+technology that transforms ideas into useful experiences.
 
 </p>
 
 
 
-<div style="margin-top:40px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
 
-<a class="button" href="mailto:yravaldxb@gmail.com">
+<div class="buttons">
+
+
+<a class="button primary"
+href="mailto:yravaldxb@gmail.com">
 
 Email Me
 
 </a>
 
 
-<a class="button" 
-href="https://www.linkedin.com/in/yashvi-raval-897105423?utm_source=share_via&utm_content=profile&utm_medium=member_ios" 
-target="_blank"
-style="background:transparent; border:1px solid var(--sage); color:var(--sage-light);">
+
+<a class="button secondary"
+href="YOUR_LINKEDIN_LINK"
+target="_blank">
 
 LinkedIn
 
 </a>
+
+
+
+<a class="button secondary"
+href="YOUR_GITHUB_LINK"
+target="_blank">
+
+GitHub
+
+</a>
+
+
 
 </div>
 
@@ -609,7 +806,6 @@ LinkedIn
 
 
 </section>
-
 
 
 
@@ -624,9 +820,7 @@ LinkedIn
 <div class="heading">
 
 <h2>
-
 About Me
-
 </h2>
 
 </div>
@@ -636,21 +830,21 @@ About Me
 <div class="about-text">
 
 
-I explore the intersection of artificial intelligence, software,
-engineering, and entrepreneurship. My work focuses on building meaningful
-products, improving user experiences, and understanding how technology can
-solve real-world problems.
+I enjoy working at the intersection of artificial intelligence,
+engineering, entrepreneurship, and design.
 
 <br><br>
 
-Beyond technology, I enjoy writing, public speaking, learning about future
-industries, and exploring ideas that could shape tomorrow.
+
+From developing AI-powered products to exploring aerospace
+technologies, I am driven by curiosity and the desire to build
+solutions that create meaningful impact.
+
 
 </div>
 
 
 </section>
-
 
 
 
@@ -666,13 +860,10 @@ industries, and exploring ideas that could shape tomorrow.
 <div class="heading">
 
 <h2>
-
 Experience
-
 </h2>
 
 </div>
-
 
 
 
@@ -684,9 +875,7 @@ Experience
 
 
 <h3>
-
 Trusity Technologies
-
 </h3>
 
 
@@ -699,8 +888,8 @@ AI Product Innovation Intern
 
 <p>
 
-Worked on AI product feedback, feature ideation, UX improvements,
-and educational technology solutions.
+Worked on AI product improvements, feedback analysis,
+feature ideation, and educational technology solutions.
 
 </p>
 
@@ -730,8 +919,8 @@ Associate & Coordinator
 
 <p>
 
-Helped organize technology initiatives, workshops, and activities
-focused on artificial intelligence and innovation.
+Organized initiatives, supported technology events,
+and helped grow an AI-focused student community.
 
 </p>
 
@@ -747,7 +936,7 @@ focused on artificial intelligence and innovation.
 
 <h3>
 
-School Summer Camp
+Summer Camp
 
 </h3>
 
@@ -761,8 +950,8 @@ Event Manager
 
 <p>
 
-Managed planning, coordination, and activities to create engaging
-experiences for younger students.
+Managed coordination, logistics, and activities
+for student experiences.
 
 </p>
 
@@ -770,9 +959,72 @@ experiences for younger students.
 </div>
 
 
+</div>
+
+
+</section>
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="heading">
+
+<h2>
+Projects
+</h2>
 
 </div>
 
+
+<div class="projects">
+
+
+<div class="project">
+
+<h3>
+Trupreneur.AI
+</h3>
+
+<p>
+Worked on improving an AI-powered entrepreneurship platform,
+focusing on user feedback, product ideas, and student experience.
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<h3>
+Credify
+</h3>
+
+<p>
+Designed a financial education and budgeting app concept
+focused on helping young users build better money habits.
+</p>
+
+</div>
+
+
+
+<div class="project">
+
+<h3>
+ModaMirror
+</h3>
+
+<p>
+Explored an AI and AR-powered smart mirror concept that
+helps users visualize outfits and improve shopping experiences.
+</p>
+
+</div>
+
+
+
+</div>
 
 </section>
 
@@ -780,19 +1032,14 @@ experiences for younger students.
 
 
 
-
 <!-- SKILLS -->
 
-
 <section id="skills">
-
 
 <div class="heading">
 
 <h2>
-
 Skills
-
 </h2>
 
 </div>
@@ -802,42 +1049,75 @@ Skills
 <div class="skills">
 
 
-<div class="skill">Python</div>
+<div class="skill">
+Python
+</div>
 
-<div class="skill">Artificial Intelligence</div>
 
-<div class="skill">Blender</div>
+<div class="skill">
+Artificial Intelligence
+</div>
 
-<div class="skill">CAD</div>
 
-<div class="skill">Product Design</div>
+<div class="skill">
+Blender
+</div>
 
-<div class="skill">UI/UX</div>
 
-<div class="skill">Leadership</div>
+<div class="skill">
+CAD
+</div>
 
-<div class="skill">Public Speaking</div>
 
-<div class="skill">Entrepreneurship</div>
+<div class="skill">
+Product Design
+</div>
+
+
+<div class="skill">
+UI/UX
+</div>
+
+
+<div class="skill">
+Machine Learning
+</div>
+
+
+<div class="skill">
+Leadership
+</div>
+
+
+<div class="skill">
+Public Speaking
+</div>
+
+
+<div class="skill">
+Entrepreneurship
+</div>
 
 
 </div>
 
-
 </section>
 
-    <!-- INTERESTS -->
 
 
-<section id="interests">
+
+
+
+<!-- INTERESTS -->
+
+
+<section>
 
 
 <div class="heading">
 
 <h2>
-
 Interests
-
 </h2>
 
 </div>
@@ -865,7 +1145,7 @@ Space Technology
 
 <div class="interest">
 
-Entrepreneurship
+Aerospace Innovation
 
 </div>
 
@@ -881,7 +1161,7 @@ Future Energy Systems
 
 <div class="interest">
 
-Machine Learning
+Human-Centered Design
 
 </div>
 
@@ -889,7 +1169,7 @@ Machine Learning
 
 <div class="interest">
 
-Human-Centered Design
+Technology Entrepreneurship
 
 </div>
 
@@ -905,9 +1185,10 @@ Writing
 
 <div class="interest">
 
-Engineering Innovation
+Engineering
 
 </div>
+
 
 
 </div>
@@ -932,7 +1213,7 @@ Engineering Innovation
 
 <h3>
 
-Let's Connect
+Let's Build Something
 
 </h3>
 
@@ -941,7 +1222,7 @@ Let's Connect
 <p>
 
 Interested in AI, engineering, product innovation,
-or building something meaningful?
+or future technologies?
 
 </p>
 
@@ -955,11 +1236,40 @@ yravaldxb@gmail.com
 
 
 
-<a class="button" href="mailto:yravaldxb@gmail.com">
+<div class="buttons">
 
-Email Me
+
+<a class="button primary"
+href="mailto:yravaldxb@gmail.com">
+
+Email
 
 </a>
+
+
+
+
+<a class="button secondary"
+href="https://www.linkedin.com/in/yashvi-raval-897105423?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+target="_blank">
+
+LinkedIn
+
+</a>
+
+
+
+<a class="button secondary"
+href="https://github.com/yashviraval07"
+target="_blank">
+
+GitHub
+
+</a>
+
+
+
+</div>
 
 
 </div>
@@ -975,7 +1285,11 @@ Email Me
 
 <footer>
 
-© 2026 Yashvi Raval • Built with curiosity and code.
+© 2026 Yashvi Raval
+
+<br>
+
+Designed with curiosity, technology, and purpose.
 
 </footer>
 
